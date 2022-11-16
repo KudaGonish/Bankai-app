@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ShikiApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary Color-->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/grey</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary color. -->
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/light_green</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="searchViewStyle">@style/CustomSearchView</item>
+
+    </style>
+    <style name="CustomSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="queryHint">Поиск...</item>
+        <item name="searchHintIcon">@null</item>
+        <item name="queryBackground">@null</item> <!--тут можно поставить обводку для поиска-->
+    </style>
+
+</resources>
