@@ -2,5 +2,9 @@
     <string name="app_name">ShikiApp</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string-array name="data_source">
+        <item>Аниме</item>
+        <item>Манга</item>
+        <item>Ранобэ</item>
+    </string-array>
 </resources>

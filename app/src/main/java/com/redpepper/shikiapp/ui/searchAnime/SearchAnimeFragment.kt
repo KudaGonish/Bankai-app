@@ -3,6 +3,7 @@ package com.redpepper.shikiapp.ui.searchAnime
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageButton
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -47,6 +48,7 @@ class SearchAnimeFragment : Fragment() {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.menu, menu)
                 val menuFilterButton = menu.findItem(R.id.action_filter)
+
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
