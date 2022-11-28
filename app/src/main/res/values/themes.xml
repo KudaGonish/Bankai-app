@@ -14,12 +14,12 @@
         <item name="android:windowLightStatusBar">true</item>
 
         <item name="searchViewStyle">@style/CustomSearchView</item>
-
     </style>
     <style name="CustomSearchView" parent="Widget.AppCompat.SearchView">
         <item name="queryHint">Поиск...</item>
         <item name="searchHintIcon">@null</item>
         <item name="queryBackground">@null</item> <!--тут можно поставить обводку для поиска-->
     </style>
+
 
 </resources>

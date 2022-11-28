@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:layout_margin="5dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="10dp">
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp">
 
     <ImageView
         android:id="@+id/anime_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-
         android:scaleType="fitXY"
+
         tools:ignore="ContentDescription"
         tools:srcCompat="@sample/images" />
 
-        <TextView
-            android:id="@+id/animeType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:background="@drawable/rounded_background_left_text_cardview"
-            android:paddingStart="7dp"
-            android:paddingEnd="7dp"
-            android:textColor="@color/white"
+    <TextView
+        android:id="@+id/animeType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="@drawable/background_rounded_left_text_cardview"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:fontFamily="@font/comfortaa_regular"
+        tools:ignore="RtlSymmetry"
+        tools:text="@sample/anime_types"
+        />
 
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@drawable/background_rounded_right_text_cardview"
+        android:fontFamily="@font/comfortaa_regular"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
+        android:textColor="@color/white"
 
-            tools:ignore="RtlSymmetry"
-            tools:text="@sample/anime_types" />
-
-        <TextView
-            android:id="@+id/rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="@drawable/rounded_background_right_text_cardview"
-            android:paddingStart="7dp"
-            android:paddingEnd="7dp"
-            android:textColor="@color/white"
-            tools:ignore="RtlSymmetry"
-
-
-            tools:text="@sample/ratings" />
+        tools:ignore="RtlSymmetry"
+        tools:text="@sample/ratings" />
 
     <TextView
         android:id="@+id/animeName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/gradient_black_to_transparent"
+        android:background="@drawable/background_gradient_black_to_transparent"
+        android:fontFamily="@font/comfortaa_regular"
         android:gravity="center"
         android:paddingStart="3dp"
         android:paddingTop="5dp"
@@ -60,6 +60,5 @@
         android:paddingBottom="8dp"
         android:textColor="@color/white"
 
-
         tools:text="@sample/anime_names" />
-    </androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView>

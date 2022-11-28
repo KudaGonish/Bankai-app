@@ -2,11 +2,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_search"
-        android:title="Search"
-        android:icon="@drawable/ic_launcher_background"
-        app:showAsAction="collapseActionView|always"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
         android:layout_width="wrap_content"
-
+        android:icon="@drawable/ic_search"
+        android:title="Search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView|ifRoom" />
+    <item
+        android:id="@+id/action_filter"
+        android:layout_width="wrap_content"
+        android:icon="@drawable/ic_slider"
+        android:iconTint="@color/green"
+        app:iconTint="@color/green"
+        android:title="filters"
+        app:showAsAction="collapseActionView|ifRoom"
         />
 </menu>
