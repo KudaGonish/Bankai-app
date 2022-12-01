@@ -2,9 +2,8 @@ package com.redpepper.shikiapp.ui.searchAnime
 
 import android.os.Bundle
 import android.view.*
-import android.widget.ImageButton
-import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -16,6 +15,7 @@ import com.redpepper.shikiapp.R
 import com.redpepper.shikiapp.databinding.FragmentSearchAnimeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -30,18 +30,14 @@ class SearchAnimeFragment : Fragment() {
 
     private val searchAnimePagingAdapter = SearchAnimePagingAdapter()
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSearchAnimeBinding.inflate(inflater, container, false)
+
+        setRecyclerView()
+        searchAnime()
 
         val menuHost: MenuHost = binding.searchAnimeToolbar
         menuHost.addMenuProvider(object : MenuProvider {
@@ -49,46 +45,50 @@ class SearchAnimeFragment : Fragment() {
                 menuInflater.inflate(R.menu.menu, menu)
                 val menuFilterButton = menu.findItem(R.id.action_filter)
 
+                val menuSearchButton = menu.findItem(R.id.action_search)
+                val searchView =
+                    menuSearchButton.actionView?.findViewById<SearchView>(R.id.customSearchView)
+
+                searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextChange(query: String?): Boolean {
+                        return if (query?.length!! >= 3) {
+                            searchAnimeByName(query)
+                            true
+                        } else if (query.length < 3) {
+                            searchJob?.cancel()
+                            true
+                        } else {
+                            false
+                        }
+                    }
+
+                    override fun onQueryTextSubmit(query: String?): Boolean {
+                        return if (query!!.isNotEmpty()) {
+                            menuSearchButton.collapseActionView()
+                            searchAnimeByName(query)
+                            true
+                        } else false
+                    }
+                })
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                if(menuItem.itemId == R.id.action_filter) {
+                if (menuItem.itemId == R.id.action_filter) {
                     Toast.makeText(context, "coming soon", Toast.LENGTH_LONG).show()
                 }
-
                 return true
             }
         }, viewLifecycleOwner)
 
+        binding.swipeRefresh.setOnRefreshListener {
+            searchAnime()
+        }
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setRecyclerView()
 
-        searchAnime()
-
-        binding.swipeRefresh.setOnRefreshListener {
-            searchAnime()
-        }
-    }
-
-
-    private fun searchAnime() {
-        searchJob?.cancel()
-        searchJob = lifecycleScope.launch {
-            binding.swipeRefresh.isRefreshing = true
-
-            searchAnimePagingAdapter.submitData(PagingData.empty())
-
-            viewModel.getSortedByRankAnime()
-            viewModel.searchResult.observe(viewLifecycleOwner) {
-                searchAnimePagingAdapter.submitData(lifecycle, it)
-            }
-
-            binding.swipeRefresh.isRefreshing = false
-        }
     }
 
     private fun setRecyclerView() {
@@ -99,4 +99,33 @@ class SearchAnimeFragment : Fragment() {
             layoutManager = GridLayoutManager(requireContext(), columnsCount)
         }
     }
+
+    private fun searchAnime() {
+        searchJob?.cancel()
+        searchJob = lifecycleScope.launch {
+            binding.swipeRefresh.isRefreshing = true
+
+            searchAnimePagingAdapter.submitData(lifecycle, PagingData.empty())
+
+            viewModel.getSortedByRankAnime()
+            viewModel.searchResult.observe(viewLifecycleOwner) {
+
+                searchAnimePagingAdapter.submitData(lifecycle, it)
+            }
+            binding.swipeRefresh.isRefreshing = false
+        }
+    }
+
+    private fun searchAnimeByName(name: String) {
+        searchJob?.cancel()
+        searchJob = lifecycleScope.launch {
+            delay(1000)
+            searchAnimePagingAdapter.submitData(lifecycle, PagingData.empty())
+            viewModel.getSearchAnimeByName(name)
+            viewModel.searchResult.observe(viewLifecycleOwner) {
+                searchAnimePagingAdapter.submitData(lifecycle, it)
+            }
+        }
+    }
 }
+

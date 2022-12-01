@@ -20,4 +20,9 @@ class SearchAnimeViewModel @Inject constructor(private val repository: AnimeRepo
         searchResult = repository.getAnimeLiveData()
             .cachedIn(viewModelScope)
     }
+
+    fun getSearchAnimeByName(name: String) {
+        searchResult = repository.getSearchByNameLiveData(name)
+            .cachedIn(viewModelScope)
+    }
 }

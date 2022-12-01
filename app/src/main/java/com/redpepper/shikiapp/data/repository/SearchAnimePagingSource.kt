@@ -1,6 +1,5 @@
 package com.redpepper.shikiapp.data.repository
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.redpepper.shikiapp.data.remote.AnimeInterface
@@ -11,6 +10,16 @@ import com.redpepper.shikiapp.utils.Constants
 class SearchAnimePagingSource(
     private val orderBy: String, private val animeInterface: AnimeInterface
 ) : PagingSource<Int, AnimeEntityItem>() {
+
+    private lateinit var _name: String
+
+    constructor(orderBy: String, name: String, animeInterface: AnimeInterface) : this(
+        orderBy,
+        animeInterface
+    ) {
+        _name = name
+    }
+
 
     override fun getRefreshKey(state: PagingState<Int, AnimeEntityItem>): Int? {
 
@@ -25,7 +34,10 @@ class SearchAnimePagingSource(
         val page = params.key ?: Constants.INITIAL_PAGE
 
         return try {
-            val data = animeInterface.getAnimeList(orderBy = orderBy, page = page)
+
+            val data =
+                if (::_name.isInitialized) animeInterface.searchAnimeByName(orderBy = orderBy, name = _name, page = page)
+                else animeInterface.getAnimeList(orderBy = orderBy, page = page)
 
             LoadResult.Page(
                 data = data.body()!!,

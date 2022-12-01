@@ -13,4 +13,11 @@ interface AnimeInterface {
         @Query("order") orderBy: String,
         @Query("page") page: Int
     ): Response<AnimeEntity>
+
+    @GET("animes?limit=${Constants.PAGE_SIZE}")
+    suspend fun searchAnimeByName(
+        @Query("order") orderBy: String,
+        @Query("page") page: Int,
+        @Query("search") name: String
+    ): Response<AnimeEntity>
 }

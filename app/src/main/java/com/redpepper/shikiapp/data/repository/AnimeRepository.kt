@@ -15,4 +15,9 @@ class AnimeRepository @Inject constructor(private val animeInterface: AnimeInter
         pagingSourceFactory = { SearchAnimePagingSource("ranked", animeInterface) },
         config = PagingConfig(pageSize = Constants.PAGE_SIZE)
     ).liveData
+
+    fun getSearchByNameLiveData(name: String) = Pager(
+        pagingSourceFactory = { SearchAnimePagingSource("ranked", name, animeInterface) },
+        config = PagingConfig(pageSize = Constants.PAGE_SIZE)
+    ).liveData
 }
