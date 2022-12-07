@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button"
+        app:srcCompat="@drawable/ic_close"
+        app:tint="@color/green"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa_regular"
+        android:text="Фильтры"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:clickable="false"
+        android:fontFamily="@font/comfortaa_light"
+        android:text="Сбросить"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="?attr/actionBarSize" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+
+        app:layout_constraintBottom_toTopOf="@+id/divider9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:id="@+id/statusTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_medium"
+                android:text="Статус"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/statusButtonGroup"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="6dp"
+                app:flexWrap="wrap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/statusTextView">
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:id="@+id/themedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Анонсировано"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Сейчас выхоодит"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Вышедшее"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Недавно вышедшее"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            <View
+                android:id="@+id/statusDivider"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/statusButtonGroup" />
+
+            <TextView
+                android:id="@+id/typeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_medium"
+                android:text="Тип"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/statusDivider" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/typeButtonGroup"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="6dp"
+                app:flexWrap="wrap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/typeTextView">
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="TV"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Фильм"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="OVA"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="ONA"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Спешл"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Клип"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="TV ~13"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="TV ~24"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="TV > 30"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            <View
+                android:id="@+id/typeDivider"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/typeButtonGroup" />
+
+            <TextView
+                android:id="@+id/episodeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_medium"
+                android:text="Эпизод"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/typeDivider" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/episodeButtonGroup"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="6dp"
+                app:flexWrap="wrap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/episodeTextView">
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="До 10 мин"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="До 30 мин"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Более 30 мин"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            <View
+                android:id="@+id/episodeDivider"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/episodeButtonGroup" />
+
+            <TextView
+                android:id="@+id/viewingRatingTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_medium"
+                android:text="Рейтинг"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.005"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/episodeDivider" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/viewingRatingButtonGroup"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="6dp"
+                app:flexWrap="wrap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.062"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewingRatingTextView">
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="G"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="PG"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="PG-13"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="R-17"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="R+"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Rx"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textSize="10dp" />
+
+
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/divider9"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="?attr/actionBarSize" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Применить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
