@@ -11,9 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_close"
         app:tint="@color/green"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -22,26 +22,22 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:fontFamily="@font/comfortaa_regular"
         android:text="Фильтры"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:clickable="false"
-        android:fontFamily="@font/comfortaa_light"
-        android:text="Сбросить"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageButton" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -107,15 +103,27 @@
                     android:layout_height="20dp"
                     android:layout_marginTop="6dp"
                     android:text="Анонсировано"
+                    app:toggle_backgroundColor="@color/white"
+                    app:toggle_borderColor="@color/green"
+                    app:toggle_borderWidth="1.5dp"
                     app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_selectAnimation="circular_reveal"
+                    app:toggle_selectedBackgroundColor="@color/opacity_green"
+                    app:toggle_selectedBorderWidth="1dp"
+                    app:toggle_selectedTextColor="@color/green"
+                    app:toggle_textColor="@color/green"
                     app:toggle_textSize="10dp" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_marginTop="6dp"
-                    android:text="Сейчас выхоодит"
+                    android:text="Сейчас выходит"
+                    app:toggle_backgroundColor="@color/opacity_green"
+                    app:toggle_borderColor="@color/green"
+                    app:toggle_borderWidth="1dp"
                     app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_textColor="@color/green"
                     app:toggle_textSize="10dp" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
@@ -123,8 +131,19 @@
                     android:layout_height="20dp"
                     android:layout_marginTop="6dp"
                     android:text="Вышедшее"
+                    app:toggle_backgroundColor="@color/opacity_green"
+                    app:toggle_borderColor="@color/green"
+                    app:toggle_borderWidth="1dp"
                     app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    app:toggle_textColor="@color/green"
+                    app:toggle_textSize="10dp"
+
+                    app:toggle_icon="@drawable/ic_horizontal_rule"
+                    app:toggle_iconGravity="left|center_vertical"
+                    app:toggle_textGravity="right|center_vertical"
+                    app:toggle_iconPaddingRight="64dp"
+                    app:toggle_iconPaddingLeft="3dp"
+                    app:toggle_textPaddingLeft="17dp"/>
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
                     android:layout_width="wrap_content"
@@ -270,7 +289,7 @@
             <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
                 android:id="@+id/episodeButtonGroup"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="255dp"
                 android:layout_marginTop="6dp"
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -299,7 +318,7 @@
                     android:layout_marginTop="6dp"
                     android:text="Более 30 мин"
                     app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    app:toggle_textSize="10dp"/>
 
 
             </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
@@ -407,11 +426,31 @@
         app:layout_constraintGuide_end="?attr/actionBarSize" />
 
     <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/green"
+        android:backgroundTintMode="add"
+        android:enabled="false"
+        android:fontFamily="@font/comfortaa_light"
+        android:text="Сбросить"
+        android:textColor="@color/white"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
+
+    <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/comfortaa_light"
         android:text="Применить"
+        android:textColor="@color/white"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
