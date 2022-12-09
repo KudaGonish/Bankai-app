@@ -1,6 +1,6 @@
 package com.redpepper.shikiapp.data.remote
 
-import com.redpepper.shikiapp.data.remote.models.AnimeEntity
+import com.redpepper.shikiapp.data.remote.models.anime.AnimeEntity
 import com.redpepper.shikiapp.utils.Constants
 import retrofit2.Response
 import retrofit2.http.GET

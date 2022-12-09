@@ -3,7 +3,7 @@ package com.redpepper.shikiapp.data.repository
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.redpepper.shikiapp.data.remote.AnimeInterface
-import com.redpepper.shikiapp.data.remote.models.AnimeEntityItem
+import com.redpepper.shikiapp.data.remote.models.anime.AnimeEntityItem
 import com.redpepper.shikiapp.utils.Constants
 
 

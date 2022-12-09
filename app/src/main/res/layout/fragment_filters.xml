@@ -55,7 +55,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -76,6 +75,40 @@
             android:paddingEnd="16dp">
 
             <TextView
+                android:id="@+id/userListTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_medium"
+                android:text="В списке"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/UserListButtonGroup"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="6dp"
+                app:flexWrap="wrap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userListTextView" />
+
+            <View
+                android:id="@+id/UserListDivider"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/UserListButtonGroup" />
+
+
+            <TextView
                 android:id="@+id/statusTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,7 +118,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/UserListDivider" />
 
             <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
                 android:id="@+id/statusButtonGroup"
@@ -95,66 +128,7 @@
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/statusTextView">
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:id="@+id/themedButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="Анонсировано"
-                    app:toggle_backgroundColor="@color/white"
-                    app:toggle_borderColor="@color/green"
-                    app:toggle_borderWidth="1.5dp"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_selectAnimation="circular_reveal"
-                    app:toggle_selectedBackgroundColor="@color/opacity_green"
-                    app:toggle_selectedBorderWidth="1dp"
-                    app:toggle_selectedTextColor="@color/green"
-                    app:toggle_textColor="@color/green"
-                    app:toggle_textSize="10dp" />
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="Сейчас выходит"
-                    app:toggle_backgroundColor="@color/opacity_green"
-                    app:toggle_borderColor="@color/green"
-                    app:toggle_borderWidth="1dp"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textColor="@color/green"
-                    app:toggle_textSize="10dp" />
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="Вышедшее"
-                    app:toggle_backgroundColor="@color/opacity_green"
-                    app:toggle_borderColor="@color/green"
-                    app:toggle_borderWidth="1dp"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textColor="@color/green"
-                    app:toggle_textSize="10dp"
-
-                    app:toggle_icon="@drawable/ic_horizontal_rule"
-                    app:toggle_iconGravity="left|center_vertical"
-                    app:toggle_textGravity="right|center_vertical"
-                    app:toggle_iconPaddingRight="64dp"
-                    app:toggle_iconPaddingLeft="3dp"
-                    app:toggle_textPaddingLeft="17dp"/>
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="Недавно вышедшее"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
-
-
-            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+                app:layout_constraintTop_toBottomOf="@+id/statusTextView" />
 
             <View
                 android:id="@+id/statusDivider"
@@ -187,82 +161,7 @@
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/typeTextView">
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="TV"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="Фильм"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="OVA"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="ONA"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="Спешл"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="Клип"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="TV ~13"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="TV ~24"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
-
-                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="TV > 30"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
-
-
-            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+                app:layout_constraintTop_toBottomOf="@+id/typeTextView" />
 
             <View
                 android:id="@+id/typeDivider"
@@ -289,7 +188,7 @@
             <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
                 android:id="@+id/episodeButtonGroup"
                 android:layout_width="0dp"
-                android:layout_height="255dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="6dp"
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -318,8 +217,7 @@
                     android:layout_marginTop="6dp"
                     android:text="Более 30 мин"
                     app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp"/>
-
+                    app:toggle_textSize="10dp" />
 
             </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
 
@@ -404,6 +302,24 @@
                     app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
                     app:toggle_textSize="10dp" />
 
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Вышедшее"
+                    app:toggle_backgroundColor="@color/opacity_green"
+                    app:toggle_borderColor="@color/green"
+                    app:toggle_borderWidth="1dp"
+                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
+                    app:toggle_icon="@drawable/ic_horizontal_rule"
+                    app:toggle_iconGravity="left|center_vertical"
+
+                    app:toggle_iconPaddingLeft="3dp"
+                    app:toggle_iconPaddingRight="64dp"
+                    app:toggle_textColor="@color/green"
+                    app:toggle_textGravity="right|center_vertical"
+                    app:toggle_textPaddingLeft="17dp"
+                    app:toggle_textSize="10dp" />
 
             </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
         </androidx.constraintlayout.widget.ConstraintLayout>

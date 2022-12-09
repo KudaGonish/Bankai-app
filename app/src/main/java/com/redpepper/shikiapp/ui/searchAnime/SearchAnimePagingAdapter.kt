@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.redpepper.shikiapp.data.remote.models.AnimeEntityItem
+import com.redpepper.shikiapp.data.remote.models.anime.AnimeEntityItem
 import com.redpepper.shikiapp.databinding.SearchAnimeCardItemBinding
 import com.redpepper.shikiapp.utils.Constants
 

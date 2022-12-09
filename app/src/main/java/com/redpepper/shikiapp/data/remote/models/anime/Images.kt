@@ -1,4 +1,4 @@
-package com.redpepper.shikiapp.data.remote.models
+package com.redpepper.shikiapp.data.remote.models.anime
 
 import com.google.gson.annotations.SerializedName
 
