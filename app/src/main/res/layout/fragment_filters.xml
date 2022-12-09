@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_close"
         app:tint="@color/green"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/textView"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/comfortaa_regular"
-        android:text="Фильтры"
+        android:text="@string/fragment_filters_name"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toTopOf="@+id/imageButton"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/comfortaa_medium"
-                android:text="В списке"
+                android:text="@string/fragment_filters_in_user_list"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/comfortaa_medium"
-                android:text="Статус"
+                android:text="@string/fragment_filters_status"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/comfortaa_medium"
-                android:text="Тип"
+                android:text="@string/fragment_filters_anime_type"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/comfortaa_medium"
-                android:text="Эпизод"
+                android:text="@string/fragment_filters_duration_of_episode"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -193,7 +193,8 @@
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/episodeTextView">
+                app:layout_constraintTop_toBottomOf="@+id/episodeTextView"
+                tools:ignore="HardcodedText">
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
                     android:layout_width="wrap_content"
@@ -201,7 +202,7 @@
                     android:layout_marginTop="6dp"
                     android:text="До 10 мин"
                     app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    app:toggle_textSize="10dp"/>
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
                     android:layout_width="wrap_content"
@@ -237,7 +238,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/comfortaa_medium"
-                android:text="Рейтинг"
+                android:text="@string/fragment_filters_watch_rating"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.005"
                 app:layout_constraintStart_toStartOf="parent"
@@ -252,7 +253,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.062"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewingRatingTextView">
+                app:layout_constraintTop_toBottomOf="@+id/viewingRatingTextView"
+                tools:ignore="HardcodedText">
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
                     android:layout_width="wrap_content"
@@ -260,7 +262,8 @@
                     android:layout_marginTop="6dp"
                     android:text="G"
                     app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    app:toggle_textSize="10dp"
+                     />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
                     android:layout_width="wrap_content"
@@ -350,12 +353,13 @@
         android:backgroundTintMode="add"
         android:enabled="false"
         android:fontFamily="@font/comfortaa_light"
-        android:text="Сбросить"
+        android:text="@string/fragment_filters_button_clear"
         android:textColor="@color/white"
         android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintTop_toTopOf="@+id/button2"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/button2"
@@ -364,11 +368,12 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/comfortaa_light"
-        android:text="Применить"
+        android:text="@string/fragment_filters_button_apply"
         android:textColor="@color/white"
         android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        tools:ignore="SmallSp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
