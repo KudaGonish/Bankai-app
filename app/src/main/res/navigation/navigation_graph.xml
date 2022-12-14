@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/searchAnimeFragment"
-        android:name="com.redpepper.shikiapp.ui.searchAnime.SearchAnimeFragment"
+        android:name="ru.kudagonish.bankai.ui.searchAnime.SearchAnimeFragment"
         android:label="SearchAnimeFragment" >
         <action
             android:id="@+id/action_searchAnimeFragment_to_filtersFragment"
@@ -14,6 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/filtersFragment"
-        android:name="com.redpepper.shikiapp.ui.filters.FiltersFragment"
+        android:name="ru.kudagonish.bankai.ui.filters.FiltersFragment"
         android:label="FiltersFragment" />
 </navigation>

@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace 'com.redpepper.shikiapp'
+    namespace 'ru.kudagonish.bankai'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.redpepper.shikiapp"
+        applicationId 'ru.kudagonish.bankai'
         minSdk 26
         targetSdk 33
         versionCode 1
