@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
     app:startDestination="@id/searchAnimeFragment">
 
     <fragment
         android:id="@+id/searchAnimeFragment"
         android:name="ru.kudagonish.bankai.ui.searchAnime.SearchAnimeFragment"
-        android:label="SearchAnimeFragment" >
+        android:label="fragment_search_anime"
+        tools:layout="@layout/fragment_search_anime">
         <action
-            android:id="@+id/action_searchAnimeFragment_to_filtersFragment"
-            app:destination="@id/filtersFragment" />
+            android:id="@+id/action_searchAnime_to_filters"
+            app:destination="@id/filtersFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/wait_anim"/>
     </fragment>
     <fragment
         android:id="@+id/filtersFragment"
         android:name="ru.kudagonish.bankai.ui.filters.FiltersFragment"
-        android:label="FiltersFragment" />
+        android:label="FiltersFragment"
+        tools:layout="@layout/fragment_filters"/>
 </navigation>

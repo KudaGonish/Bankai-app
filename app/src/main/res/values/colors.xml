@@ -9,6 +9,8 @@
     <color name="green">#06C149</color>
     <color name="opacity_green">#1406C149</color>
     <color name="light_green">#EBFAF1</color>
+    <color name="pink">#F885D1</color>
+
 
     <!-- Night Colors-->
     <color name="dark_blue">#181A20</color>

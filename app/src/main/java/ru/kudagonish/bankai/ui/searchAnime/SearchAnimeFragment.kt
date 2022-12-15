@@ -9,6 +9,8 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavHostController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,6 +51,8 @@ class SearchAnimeFragment : Fragment() {
                 val searchView =
                     menuSearchButton.actionView?.findViewById<SearchView>(R.id.customSearchView)
 
+
+
                 searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextChange(query: String?): Boolean {
                         return if (query?.length!! >= 3) {
@@ -74,7 +78,7 @@ class SearchAnimeFragment : Fragment() {
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 if (menuItem.itemId == R.id.action_filter) {
-                    Toast.makeText(context, "coming soon", Toast.LENGTH_LONG).show()
+                    NavHostFragment.findNavController(this@SearchAnimeFragment).navigate(R.id.action_searchAnime_to_filters)
                 }
                 return true
             }

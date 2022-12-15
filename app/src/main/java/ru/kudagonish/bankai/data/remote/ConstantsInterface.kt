@@ -8,12 +8,12 @@ import ru.kudagonish.bankai.data.remote.constants.KindAndStatusModel
 
 interface ConstantsInterface {
 
-    @GET("api/constants/anime")
+    @GET("constants/anime")
     suspend fun getKindAndStatusFilter(): Response<KindAndStatusModel>
 
-    @GET("api/constants/user_rate")
+    @GET("constants/user_rate")
     suspend fun getAnimeInUserListFilter(): Response<AnimeInUserList>
 
-    @GET("/api/genres")
+    @GET("genres")
     suspend fun getGenresFilter(): Response<GenresModel>
 }

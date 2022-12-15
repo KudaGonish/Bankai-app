@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/exitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,9 +25,9 @@
         android:layout_marginStart="16dp"
         android:fontFamily="@font/comfortaa_regular"
         android:text="@string/fragment_filters_name"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        app:layout_constraintBottom_toBottomOf="@+id/exitButton"
+        app:layout_constraintStart_toEndOf="@+id/exitButton"
+        app:layout_constraintTop_toTopOf="@+id/exitButton"
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
@@ -35,9 +35,9 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+        app:layout_constraintBottom_toBottomOf="@+id/exitButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+        app:layout_constraintTop_toTopOf="@+id/exitButton" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -94,7 +94,8 @@
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userListTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/userListTextView"
+                app:toggle_horizontalSpacing = "10dp"/>
 
             <View
                 android:id="@+id/UserListDivider"
@@ -128,7 +129,8 @@
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/statusTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/statusTextView"
+                app:toggle_horizontalSpacing = "10dp"/>
 
             <View
                 android:id="@+id/statusDivider"
@@ -161,7 +163,8 @@
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/typeTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/typeTextView"
+                app:toggle_horizontalSpacing = "10dp"/>
 
             <View
                 android:id="@+id/typeDivider"
@@ -202,7 +205,9 @@
                     android:layout_marginTop="6dp"
                     android:text="До 10 мин"
                     app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp"/>
+                    app:toggle_textSize="10sp"
+                    app:toggle_borderWidth="1dp"
+                    app:toggle_borderColor="@color/green"/>
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
                     android:layout_width="wrap_content"
