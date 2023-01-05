@@ -2,13 +2,8 @@ package ru.kudagonish.bankai.ui.filters
 
 import android.os.Bundle
 import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.RelativeLayout
-import androidx.core.view.setMargins
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
@@ -19,40 +14,25 @@ import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
 import ru.kudagonish.bankai.R
 import ru.kudagonish.bankai.databinding.FragmentFiltersBinding
+import ru.kudagonish.bankai.utils.BaseFragment
 import ru.kudagonish.bankai.utils.layoutGravity
-import ru.kudagonish.bankai.utils.setMargin
 import ru.kudagonish.bankai.utils.setViewPadding
 
 @AndroidEntryPoint
-class FiltersFragment : Fragment() {
+class FiltersFragment : BaseFragment<FragmentFiltersBinding>(FragmentFiltersBinding::inflate) {
 
     private var filtersJob: Job? = null
-    private lateinit var binding: FragmentFiltersBinding
     private val viewModel: FiltersViewModel by viewModels()
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentFiltersBinding.inflate(inflater, container, false)
-
-
-        binding.exitButton.setOnClickListener {
-            NavHostFragment.findNavController(this@FiltersFragment).popBackStack()
-        }
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         filtersJob?.cancel()
         filtersJob = lifecycleScope.launch {
             viewModel.getKindAndStatusFilters()
             viewModel.getUserListFilters()
 
-
             val kindButtonGroup = binding.typeButtonGroup
-
             val statusButtonGroup = binding.statusButtonGroup
             val animeInUserListButtonGroup = binding.UserListButtonGroup
-
 
             for (i in 0 until viewModel.kindAndStatusFilter.kind.size)
                 createThemedButton(kindButtonGroup, viewModel.kindAndStatusFilter.kind[i])
@@ -63,13 +43,21 @@ class FiltersFragment : Fragment() {
             for (i in 0 until viewModel.userListFilter.status.size)
                 createThemedButton(animeInUserListButtonGroup, viewModel.userListFilter.status[i])
         }
-        return binding.root
+    }
+    override fun onCreateView() {
+
+        binding.exitButton.setOnClickListener {
+            NavHostFragment.findNavController(this@FiltersFragment).popBackStack()
+        }
+
+
     }
 
     private fun createThemedButton(buttonGroup: ThemedToggleButtonGroup, data: String) {
         val btn = ThemedButton(buttonGroup.context).apply {
             tag = data + "button"
             text = data
+
             fontFamily = "/fonts/comfortaa_light.ttf"
             applyToTexts {
                 it.textSize = 10f
@@ -92,10 +80,11 @@ class FiltersFragment : Fragment() {
             borderWidth = 2.5f
             selectedBorderWidth = 2.7f
         }
-        val params = RelativeLayout.LayoutParams(WRAP_CONTENT,58)
-        params.setMargins(0,17,0,0)
+
+        val params = RelativeLayout.LayoutParams(WRAP_CONTENT, 58)
+        params.setMargins(0, 17, 0, 0)
         buttonGroup.addView(btn, params)
     }
-
-
 }
+
+

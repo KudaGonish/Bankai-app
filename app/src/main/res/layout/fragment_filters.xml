@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_close"
         app:tint="@color/green"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
 
     <TextView
         android:id="@+id/textView"
@@ -37,7 +37,8 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/exitButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/exitButton" />
+        app:layout_constraintTop_toTopOf="@+id/exitButton"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -89,19 +90,20 @@
             <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
                 android:id="@+id/UserListButtonGroup"
                 android:layout_width="0dp"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/userListTextView"
-                app:toggle_horizontalSpacing = "10dp"/>
+                app:toggle_horizontalSpacing="10dp"
+                app:toggle_selectableAmount="10"
+                android:paddingBottom="12dp"/>
 
             <View
                 android:id="@+id/UserListDivider"
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:layout_marginTop="4dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -124,19 +126,20 @@
             <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
                 android:id="@+id/statusButtonGroup"
                 android:layout_width="0dp"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/statusTextView"
-                app:toggle_horizontalSpacing = "10dp"/>
+                app:toggle_horizontalSpacing="10dp"
+                app:toggle_selectableAmount="10"
+                android:paddingBottom="12dp"/>
 
             <View
                 android:id="@+id/statusDivider"
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:layout_marginTop="4dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -158,19 +161,20 @@
             <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
                 android:id="@+id/typeButtonGroup"
                 android:layout_width="0dp"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/typeTextView"
-                app:toggle_horizontalSpacing = "10dp"/>
+                app:toggle_horizontalSpacing="10dp"
+                app:toggle_selectableAmount="10"
+                android:paddingBottom="12dp"/>
 
             <View
                 android:id="@+id/typeDivider"
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:layout_marginTop="4dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -191,39 +195,32 @@
             <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
                 android:id="@+id/episodeButtonGroup"
                 android:layout_width="0dp"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/episodeTextView"
-                tools:ignore="HardcodedText">
+                app:toggle_selectableAmount="10"
+                android:paddingBottom="12dp">
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    style="@style/FiltersThemedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="До 10 мин"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10sp"
-                    app:toggle_borderWidth="1dp"
-                    app:toggle_borderColor="@color/green"/>
+                    android:text="До 10 мин" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    style="@style/FiltersThemedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="До 30 мин"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    android:text="До 30 мин" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    style="@style/FiltersThemedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="Более 30 мин"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    android:text="Более 30 мин" />
 
             </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
 
@@ -231,7 +228,6 @@
                 android:id="@+id/episodeDivider"
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:layout_marginTop="4dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -252,63 +248,51 @@
             <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
                 android:id="@+id/viewingRatingButtonGroup"
                 android:layout_width="0dp"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 app:flexWrap="wrap"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.062"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewingRatingTextView"
-                tools:ignore="HardcodedText">
+                app:toggle_selectableAmount="10"
+                android:paddingBottom="12dp">
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    style="@style/FiltersThemedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="G"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp"
-                     />
+                    android:text="G" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    style="@style/FiltersThemedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="PG"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    android:text="PG" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    style="@style/FiltersThemedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="PG-13"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    android:text="PG-13" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    style="@style/FiltersThemedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="R-17"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    android:text="R-17" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    style="@style/FiltersThemedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="R+"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    android:text="R+" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    style="@style/FiltersThemedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_marginTop="6dp"
-                    android:text="Rx"
-                    app:toggle_fontFamily="/fonts/comfortaa_light.ttf"
-                    app:toggle_textSize="10dp" />
+                    android:text="Rx" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
                     android:layout_width="wrap_content"
@@ -330,6 +314,52 @@
                     app:toggle_textSize="10dp" />
 
             </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            <View
+                android:id="@+id/viewRatingDivider"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewingRatingButtonGroup" />
+
+            <TextView
+                android:id="@+id/genresTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_medium"
+                android:text="@string/fragment_filters_genres"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.005"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewRatingDivider" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="16dp"
+                app:iconTint="@color/green"
+                android:background="@drawable/background_circle_button"
+                android:fontFamily="@font/comfortaa_light"
+                android:paddingStart="5.5dp"
+                app:icon="@drawable/ic_add"
+                app:iconSize="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/genresTextView"
+                app:layout_constraintLeft_toRightOf="@id/genresTextView"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <View
+                android:id="@+id/genresDivider"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/genresTextView" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -349,14 +379,12 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_end="?attr/actionBarSize" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:backgroundTint="@color/green"
-        android:backgroundTintMode="add"
-        android:enabled="false"
         android:fontFamily="@font/comfortaa_light"
         android:text="@string/fragment_filters_button_clear"
         android:textColor="@color/white"
@@ -364,9 +392,10 @@
         app:layout_constraintBottom_toBottomOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button2"
-        tools:ignore="SmallSp" />
+        tools:ignore="SmallSp,TextContrastCheck" />
 
-    <Button
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button2"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -379,6 +408,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        tools:ignore="SmallSp" />
+        tools:ignore="SmallSp,TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

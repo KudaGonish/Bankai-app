@@ -19,39 +19,31 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.kudagonish.bankai.R
 import ru.kudagonish.bankai.databinding.FragmentSearchAnimeBinding
+import ru.kudagonish.bankai.utils.BaseFragment
 
 
 @AndroidEntryPoint
-class SearchAnimeFragment : Fragment() {
+class SearchAnimeFragment : BaseFragment<FragmentSearchAnimeBinding>(FragmentSearchAnimeBinding::inflate) {
 
     private var searchJob: Job? = null
-
-    private lateinit var binding: FragmentSearchAnimeBinding
 
     private val viewModel: SearchAnimeViewModel by viewModels()
 
     private val searchAnimePagingAdapter = SearchAnimePagingAdapter()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentSearchAnimeBinding.inflate(inflater, container, false)
-
+    override fun onCreateView(){
         setRecyclerView()
         searchAnime()
 
         val menuHost: MenuHost = binding.searchAnimeToolbar
+
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.menu, menu)
-                val menuFilterButton = menu.findItem(R.id.action_filter)
 
                 val menuSearchButton = menu.findItem(R.id.action_search)
                 val searchView =
                     menuSearchButton.actionView?.findViewById<SearchView>(R.id.customSearchView)
-
-
 
                 searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextChange(query: String?): Boolean {
@@ -75,7 +67,6 @@ class SearchAnimeFragment : Fragment() {
                     }
                 })
             }
-
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 if (menuItem.itemId == R.id.action_filter) {
                     NavHostFragment.findNavController(this@SearchAnimeFragment).navigate(R.id.action_searchAnime_to_filters)
@@ -87,8 +78,6 @@ class SearchAnimeFragment : Fragment() {
         binding.swipeRefresh.setOnRefreshListener {
             searchAnime()
         }
-
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

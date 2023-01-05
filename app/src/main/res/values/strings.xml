@@ -17,4 +17,5 @@
     <string name="fragment_filters_watch_rating">Рейтинг просмотра</string>
     <string name="fragment_filters_button_clear">Сбросить</string>
     <string name="fragment_filters_button_apply">Применить</string>
+    <string name="fragment_filters_genres">Жанры</string>
 </resources>

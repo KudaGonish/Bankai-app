@@ -1,9 +1,12 @@
 package ru.kudagonish.bankai.utils
 
 import android.view.View
+import android.view.View.OnLongClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
+import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 
 fun TextView.setViewPadding(
     left: Float? = null, top: Float? = null,
@@ -33,13 +36,5 @@ var View.layoutGravity
         )
     }
 
-fun View.setMargin(leftMargin: Int? = null, topMargin: Int? = null,
-                   rightMargin: Int? = null, bottomMargin: Int? = null) {
-    val params = layoutParams as ViewGroup.MarginLayoutParams
-    params.setMargins(
-        leftMargin ?: params.leftMargin,
-        topMargin ?: params.topMargin,
-        rightMargin ?: params.rightMargin,
-        bottomMargin ?: params.bottomMargin)
-    layoutParams = params
-}
+
+

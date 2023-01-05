@@ -25,4 +25,18 @@
         <item name="fontFamily">@font/comfortaa_regular</item>
     </style>
 
+    <style name="FiltersThemedButton">
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="toggle_backgroundColor">@color/white</item>
+        <item name="toggle_borderColor">@color/green</item>
+        <item name="toggle_borderWidth">1dp</item>
+        <item name="toggle_fontFamily">/fonts/comfortaa_light.ttf</item>
+        <item name="toggle_selectedBackgroundColor">@color/opacity_green</item>
+        <item name="toggle_selectedBorderColor">@color/green</item>
+        <item name="toggle_selectedTextColor">@color/green</item>
+        <item name="toggle_textColor">@color/green</item>
+        <item name="toggle_textSize">10sp</item>
+        <item name="toggle_selectedBorderWidth">1dp</item>
+    </style>
+
 </resources>
