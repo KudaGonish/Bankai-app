@@ -1,4 +1,5 @@
 # Bankai-app
+```
 navController.previousBackStackEntry
     ?.savedStateHandle
     ?.set("your_key", "your_value")
@@ -12,13 +13,14 @@ val secondScreenResult = navController.currentBackStackEntry
 secondScreenResult?.value?.let {
     // Read the result
 }
-------------------------------
+```
 
-6
+
 
 
 If you need only once get value, you need remove value after usage:
 
+```
 val screenResultState = navController.currentBackStackEntry
     ?.savedStateHandle
     ?.getLiveData<String>("some_key")?.observeAsState()
@@ -32,8 +34,9 @@ screenResultState?.value?.let {
         ?.savedStateHandle
         ?.remove<String>("some_key")
 }
+```
 I also extract it in function (for JetPack Compose)
-
+```
 @Composable
 fun <T> NavController.GetOnceResult(keyResult: String, onResult: (T) -> Unit){
     val valueScreenResult =  currentBackStackEntry
@@ -48,9 +51,35 @@ fun <T> NavController.GetOnceResult(keyResult: String, onResult: (T) -> Unit){
             ?.remove<T>(keyResult)
     }
 }
+```
 you can copy it to your project and use like this:
-
+```
 navController.GetOnceResult<String>("some_key"){
     ...
     // make something
 }
+```
+
+
+CANVAS
+10%
+```
+drawArc(
+            Color.Blue,
+            startAngle = 70f,
+            sweepAngle = 40f,
+            useCenter = true,
+            size = Size(250.dp.toPx(), 250.dp.toPx())
+        )
+ ```
+ 50%
+```
+startAngle = 0f,
+sweepAngle = 180f,
+```
+
+25%
+```
+startAngle = 45f,
+sweepAngle = 90f,
+            ```
