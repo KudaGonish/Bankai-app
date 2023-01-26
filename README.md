@@ -86,3 +86,4 @@ sweepAngle = 90f,
             
             
             https://www.youtube.com/watch?v=kcpJmDM2jwU
+            https://reddeveloper.ru/questions/jetpack-compose-kak-initsiirovat-sobytiye-pri-sostavlenii-ekrana-195xa
